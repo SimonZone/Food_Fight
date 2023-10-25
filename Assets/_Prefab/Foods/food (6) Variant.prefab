@@ -48,6 +48,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2583172048595789414, guid: 1a70979d0a5baaf43a98e77dcb9abaec, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8729041
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583172048595789414, guid: 1a70979d0a5baaf43a98e77dcb9abaec, type: 3}
+      propertyPath: m_Size.y
+      value: 0.81807816
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583172048595789414, guid: 1a70979d0a5baaf43a98e77dcb9abaec, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.003738016
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583172048595789414, guid: 1a70979d0a5baaf43a98e77dcb9abaec, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.031150997
+      objectReference: {fileID: 0}
     - target: {fileID: 4466543230061824764, guid: 1a70979d0a5baaf43a98e77dcb9abaec, type: 3}
       propertyPath: m_Name
       value: food (6) Variant

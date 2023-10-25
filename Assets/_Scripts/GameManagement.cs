@@ -9,7 +9,7 @@ public class GameManagement : MonoBehaviour
 
     public List<GameObject> Projectiles;
 
-    public int rutineTime = 10;
+    public int routine = 10;
 
     public void Start()
     {
@@ -37,7 +37,7 @@ public class GameManagement : MonoBehaviour
 
     IEnumerator SpawnCoroutine()
     {
-        for (int i = 0; i < rutineTime; i++)
+        for (int i = 0; i < routine; i++)
         {
             Instantiate(RandomProjectile(), RandomSpawnPoint(), Quaternion.identity);
 
