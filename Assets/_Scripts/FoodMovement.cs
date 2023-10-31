@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject myGameObject = this.gameObject;
+        GameObject myGameObject = gameObject;
 
         GameObject targetObject = GameObject.FindGameObjectWithTag("Hero");
         
@@ -21,12 +21,9 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Hit collision");
         if (collision.gameObject.tag == "Hero")
         {
-            Debug.Log("Hit hero");
             Destroy(this.gameObject);
         }
-
     }
 }
