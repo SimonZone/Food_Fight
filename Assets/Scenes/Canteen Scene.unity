@@ -18693,7 +18693,7 @@ Transform:
   m_GameObject: {fileID: 1255911002}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.12, y: -8.42, z: 1.6560081}
+  m_LocalPosition: {x: -20.83, y: -7.97, z: 1.6560081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21174,6 +21174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Projectile (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7021174321178015461, guid: d9846b0a7af9e6448b1d049afc28223c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21534,6 +21538,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1255911003}
     m_Modifications:
+    - target: {fileID: 1922176016444952744, guid: 0256798a4f1be6d46b65b5f033c18970, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922176016444952744, guid: 0256798a4f1be6d46b65b5f033c18970, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922176016444952744, guid: 0256798a4f1be6d46b65b5f033c18970, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5755053784606434402, guid: 0256798a4f1be6d46b65b5f033c18970, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.740002

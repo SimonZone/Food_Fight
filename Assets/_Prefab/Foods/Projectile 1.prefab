@@ -74,8 +74,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -179,7 +179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wordUnderProjectile: {fileID: 1041578038593385939}
-  wordBank: []
   currentWord: test
   remainingWord: 
 --- !u!1 &5042447748338164776
@@ -214,7 +213,8 @@ Transform:
   m_LocalPosition: {x: -12.966314, y: -10.345252, z: -1.4499824}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6134894887058499802}
   m_Father: {fileID: 5755053784606434402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5729944327107951805
@@ -353,7 +353,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &7442643117414684709
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +385,6 @@ Transform:
   m_Children:
   - {fileID: 7619238928366012622}
   - {fileID: 8535789737011528908}
-  - {fileID: 6134894887058499802}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7496367698032753809
@@ -415,16 +414,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7496367698032753809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.4499824}
-  m_LocalScale: {x: 0.044999998, y: 0.044999998, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4361809789000362843}
-  m_Father: {fileID: 5755053784606434402}
+  m_Father: {fileID: 7619238928366012622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.966312, y: -10.345252}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7407627625382594223

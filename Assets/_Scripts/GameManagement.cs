@@ -29,7 +29,7 @@ public class GameManagement : MonoBehaviour
     private Vector3 RandomSpawnPoint()
     {
         int randomSoawnPointIndex = Random.Range(0,Spawnpoints.Count);
-        var randomOffset = Random.insideUnitCircle * 1.5F;
+        var randomOffset = Random.insideUnitCircle * 0.1F;
 
         var randomSpawnPoint = Spawnpoints[randomSoawnPointIndex].transform.position + (Vector3) randomOffset;
         return randomSpawnPoint;
