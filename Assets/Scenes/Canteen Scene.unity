@@ -18683,7 +18683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1255911003
 Transform:
   m_ObjectHideFlags: 0
@@ -20676,6 +20676,7 @@ MonoBehaviour:
   Lives: 3
   Won: 0
   PowerUp: 0
+  highscore: 0
   bobAnimations: {fileID: 1966336135}
 --- !u!4 &1987724086 stripped
 Transform:

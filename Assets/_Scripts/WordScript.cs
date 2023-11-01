@@ -26,10 +26,11 @@ public class WordScript : MonoBehaviour
     "wine", "song", "ring", "baby", "lion", "leaf", "pear", "deer", "hand", "fish",
     "star", "rose", "moon", "blue", "bird", "lamp", "book", "rose", "frog", "door"
     };
-    public string currentWord;
-    public string remainingWord;
-    private bool isWordComplete;
+    private string currentWord;
+    private string remainingWord;
+    public bool isWordComplete;
     private int currentIndex = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -66,9 +67,9 @@ public class WordScript : MonoBehaviour
     { 
         if (IsCorrectLetter(typedLetter)) 
         {
+            currentIndex++;
             ColorLetter();
-
-            if (IsWordComplete())
+            if (remainingWord.Length == 0)
             {
                 isWordComplete = true;
             }
@@ -77,40 +78,37 @@ public class WordScript : MonoBehaviour
 
     private bool IsCorrectLetter(string letter)
     {
-        currentIndex++;
         return remainingWord.IndexOf(letter) == 0;
     }
 
     private void ColorLetter()
     {
-        TextMeshProUGUI currentText = wordUnderProjectile;
-
         string letterToPaint = "";
         string letterNotToPaint = "";
 
-        for (int i = 0; i < currentText.text.Length; i++)
+        for (int i = 0; i < currentWord.Length; i++)
         {
             if (i < currentIndex)
             {
-                letterToPaint.Append( currentText.text[i]);
+                letterToPaint += currentWord[i];
             } else if (i >= currentIndex)
             {
-                letterNotToPaint.Append(currentText.text[i]);
+                letterNotToPaint += currentWord[i];
             }
         }
-
+        Debug.Log("word that is being changed: " + letterToPaint + " - " + letterNotToPaint);
 
         wordUnderProjectile.SetText($"" +
             $"{letterToPaint.AddColor(Color.green)}" +
             $"{letterNotToPaint.AddColor(Color.red)}");
-
+        //wordUnderProjectile.SetText($"" +
+        //    $"{"H".AddColor(Color.red)}" +
+        //    $"{"E".AddColor(Color.blue)}" +
+        //    $"{"L".AddColor(Color.green)}" +
+        //    $"{"L".AddColor(Color.white)}" +
+        //    $"{"O".AddColor(Color.yellow)}");
         string newString = remainingWord.Remove(0, 1);
         SetRemainingWord(newString);
-    }
-
-    private bool IsWordComplete()
-    {
-        return remainingWord.Length == 0;
     }
 }
 

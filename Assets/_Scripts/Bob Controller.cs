@@ -8,11 +8,19 @@ public class BobController : MonoBehaviour
     public int Lives = 3;
     public bool Won = false;
     public bool PowerUp = false;
+    public int highscore = 0;
+
     [SerializeField]
     public BobAnimations bobAnimations;
+    private WordScript projectile;
 
     private bool isDefeatPlaying = false;
     private bool isVictoryPlaying = false;
+
+    private void Start()
+    {
+        projectile = GetComponent<WordScript>();
+    }
 
     void FixedUpdate()
     {
@@ -30,20 +38,25 @@ public class BobController : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("player got hit by something");
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("player got hit by " + collision.gameObject.tag);
-            Destroy(collision.gameObject);
-            Lives--;
-            Debug.Log("current lives: " + Lives);
-
+            
+            projectile = collision.gameObject.GetComponentInChildren<WordScript>();
+            Debug.Log(projectile.isWordComplete);
+            if (!projectile.isWordComplete)
+            {
+                Lives--;
+            } else
+            {
+                bobAnimations.SetAnimationBool("Swing", true);
+                highscore++;
+            }
             if (Lives <= 0 && !isDefeatPlaying)
             {
-                Debug.Log("Player defeated");
                 bobAnimations.SetAnimationBool("Defeat", true);
                 isDefeatPlaying = true;
             }
+            Destroy(collision.gameObject);
         }
     }
 
