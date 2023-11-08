@@ -174,7 +174,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 644172808489553692}
-  - component: {fileID: 6163658682368780342}
   m_Layer: 6
   m_Name: Bob
   m_TagString: Hero
@@ -198,19 +197,3 @@ Transform:
   - {fileID: 8349988751674977096}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6163658682368780342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7126706871452765655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c5031f0a1e80124aba5cda110099feb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Lives: 3
-  Won: 0
-  PowerUp: 0
-  bobAnimations: {fileID: 6957252505957444591}
