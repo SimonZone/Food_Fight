@@ -1,83 +1,74 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Linq;
 
 public class BobController : MonoBehaviour
 {
     public int Lives = 3;
-    public bool Won = false;
     public bool PowerUp = false;
-    public int highscore = 0;
+    public int Highscore = 0;
+    public int scoreToWin = 500;
 
-    [SerializeField]
+    [field: SerializeField]
+    public UnityEvent OnDefeat { set; get; }
+    [field: SerializeField]
+    public UnityEvent OnVictory { set; get; }
+    [field: SerializeField]
+    public UnityEvent OnPowerUp { set; get; }
+    [field: SerializeField]
+    public UnityEvent Swing { set; get; }
+
+    public TextMeshProUGUI scoreText;
+
     public BobAnimations bobAnimations;
     private WordScript projectile;
 
-    private bool isDefeatPlaying = false;
-    private bool isVictoryPlaying = false;
-
     private void Start()
     {
-        projectile = GetComponent<WordScript>();
+        scoreText.text = Highscore.ToString();
     }
-
     void FixedUpdate()
-    {
-        Swing();
-
-        if (Won && !isVictoryPlaying)
-        {
-            // Play the victory animation only if it's not already playing
-            bobAnimations.SetAnimationBool("Victory", true);
-            isVictoryPlaying = true;
-        }
-
-        OnPowerUp();
-    }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            
-            projectile = collision.gameObject.GetComponentInChildren<WordScript>();
-            Debug.Log(projectile.isWordComplete);
-            if (!projectile.isWordComplete)
-            {
-                Lives--;
-            } else
-            {
-                bobAnimations.SetAnimationBool("Swing", true);
-                highscore++;
-            }
-            if (Lives <= 0 && !isDefeatPlaying)
-            {
-                bobAnimations.SetAnimationBool("Defeat", true);
-                isDefeatPlaying = true;
-            }
-            Destroy(collision.gameObject);
-        }
-    }
-
-    private void Swing()
-    {
-        if (Input.GetKey(KeyCode.S))
-        {
-            bobAnimations.SetAnimationBool("Swing",true);
-        } 
-        else
-        {
-            bobAnimations.SetAnimationBool("Swing", false);
-        }
-    }
-
-    private void OnPowerUp()
     {
         if (PowerUp)
         {
-            bobAnimations.SetAnimationBool("PowerUp", true);
-            PowerUp = false;
+            OnPowerUp.Invoke();
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        projectile = collision.gameObject.GetComponentInChildren<WordScript>();
+        if (projectile != null)
+        {
+            //Debug.Log("Did find WordScript component, word completeness status: " + projectile.isWordComplete);
+            if (!projectile.isWordComplete)
+            {
+                Lives--;
+                Debug.Log("I got hit by something");
+            }
+            else
+            {
+                Swing.Invoke();
+                Highscore += projectile.currentWord.Count();
+                scoreText.text = Highscore.ToString();
+                if (Highscore >= scoreToWin)
+                {
+                    OnVictory.Invoke();
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Did not find WordScript component");
+        }
+
+        if (Lives <= 0)
+        {
+            OnDefeat.Invoke();
+        }
+        Destroy(collision.gameObject);
     }
 }

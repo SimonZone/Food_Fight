@@ -1,23 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using Random = UnityEngine.Random;
-
 public class GameManagement : MonoBehaviour
 {
     public List<GameObject> Spawnpoints;
-
     public List<GameObject> Projectiles;
+    public GameObject bob;
+    private BobController bobController;
 
-    public int routine = 10;
+    public int routineLoops = 200;
+    public float initialSpawnTime = 5.0f;
+    private int score = 1;
+    public int pointsToIncrease = 50;
+    public float timeToDecrease = 0.02f;
+    private int timesDecreased = 1;
 
     public void Start()
     {
+        bobController = bob.GetComponent<BobController>();
         StartCoroutine(SpawnCoroutine());
-        //Instantiate(Projectiles[1], Spawnpoints[1].transform.position, Quaternion.identity);
-        //Instantiate(Projectiles[2], Spawnpoints[2].transform.position, Quaternion.identity);
-        //Instantiate(Projectiles[3], Spawnpoints[3].transform.position, Quaternion.identity);
-        //Instantiate(Projectiles[4], Spawnpoints[4].transform.position, Quaternion.identity);
     }
 
     private GameObject RandomProjectile()
@@ -28,22 +31,39 @@ public class GameManagement : MonoBehaviour
 
     private Vector3 RandomSpawnPoint()
     {
-        int randomSoawnPointIndex = Random.Range(0,Spawnpoints.Count);
-        var randomOffset = Random.insideUnitCircle * 0.1F;
-
-        var randomSpawnPoint = Spawnpoints[randomSoawnPointIndex].transform.position + (Vector3) randomOffset;
+        int randomSpawnPointIndex = Random.Range(0, Spawnpoints.Count);
+        var randomSpawnPoint = Spawnpoints[randomSpawnPointIndex].transform.position;
         return randomSpawnPoint;
     }
 
     IEnumerator SpawnCoroutine()
     {
-        for (int i = 0; i < routine; i++)
+        float currentSpawnTime = initialSpawnTime; // Initialize with the initial spawn time
+
+        for (int i = 0; i < routineLoops; i++)
         {
             Instantiate(RandomProjectile(), RandomSpawnPoint(), Quaternion.identity);
 
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(currentSpawnTime);
+
+            if (bobController.Highscore > 1)
+            {
+                score = bobController.Highscore;
+            }
+            Debug.Log("the score is: " + score
+                    + ", the current spawn time is: " + currentSpawnTime
+                    + ", the time to decrease is: " + timesDecreased);
+
+            if (score >= (timesDecreased + 1) * pointsToIncrease)
+            {
+                Debug.Log("Times Decreased: " + timesDecreased);
+                timesDecreased++;
+                if (currentSpawnTime >= 1.5f)
+                {
+                    currentSpawnTime -= timeToDecrease;
+                }
+                timeToDecrease += 0.02f;
+            }
         }
     }
-
-
 }

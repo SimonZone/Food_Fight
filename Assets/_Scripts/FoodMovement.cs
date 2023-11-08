@@ -21,9 +21,10 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Hero")
+        if (collision.gameObject.CompareTag("Hero"))
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            Debug.Log("Food hit hero");
         }
     }
 

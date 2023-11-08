@@ -12,11 +12,6 @@ public class BobAnimations : MonoBehaviour
         bobAnimator = GetComponent<Animator>();
     }
 
-    public void SetAnimationBool(string boolName, bool value)
-    {
-        bobAnimator.SetBool(boolName, value);
-    }
-
     public void PlayDefeat()
     {
         bobAnimator.SetTrigger("Defeat");
@@ -25,5 +20,13 @@ public class BobAnimations : MonoBehaviour
     public void PlayVictory()
     {
         bobAnimator.SetTrigger("Victory");
+    }
+    public void PlaySwing()
+    {
+        bobAnimator.SetTrigger("Swing");
+    }
+    public void PlayPowerUp()
+    {
+        bobAnimator.SetTrigger("PowerUp");
     }
 }
