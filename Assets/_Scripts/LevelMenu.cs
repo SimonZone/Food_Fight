@@ -8,6 +8,7 @@ public class LevelMenu : MonoBehaviour
     public string sceneToLoad;
     public void Load()
     {
+        Debug.Log("Going to level " + sceneToLoad);
         SceneManager.LoadScene(sceneToLoad);
     }
 }

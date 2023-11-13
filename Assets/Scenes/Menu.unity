@@ -416,7 +416,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154463067}
-  - component: {fileID: 154463068}
   m_Layer: 0
   m_Name: LevelMenu
   m_TagString: Untagged
@@ -443,19 +442,6 @@ Transform:
   - {fileID: 905647779}
   m_Father: {fileID: 1564091507}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &154463068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154463066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7238eab922530f74794309a9a7af40f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: Canteen Scene
 --- !u!1 &240467733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1067,7 @@ GameObject:
   - component: {fileID: 701024071}
   - component: {fileID: 701024070}
   - component: {fileID: 701024069}
+  - component: {fileID: 701024072}
   m_Layer: 5
   m_Name: Play Level Button
   m_TagString: Untagged
@@ -1154,7 +1141,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 154463068}
+      - m_Target: {fileID: 701024072}
         m_TargetAssemblyTypeName: LevelMenu, Assembly-CSharp
         m_MethodName: Load
         m_Mode: 1
@@ -1204,6 +1191,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701024067}
   m_CullTransparentMesh: 1
+--- !u!114 &701024072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701024067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7238eab922530f74794309a9a7af40f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: Canteen Scene
 --- !u!1 &766034278
 GameObject:
   m_ObjectHideFlags: 0
