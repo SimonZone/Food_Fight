@@ -19894,7 +19894,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -824.3, y: 471}
+  m_AnchoredPosition: {x: -770, y: 455}
   m_SizeDelta: {x: 200, y: 25}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1011467151
@@ -20991,7 +20991,7 @@ GameObject:
   - component: {fileID: 1385247939}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21041,8 +21041,10 @@ MonoBehaviour:
   bob: {fileID: 1966336134}
   routineLoops: 200
   initialSpawnTime: 5
-  pointsToIncrease: 20
+  pointsToIncrease: 5
   timeToDecrease: 0.02
+  speed: 5
+  IncrementSpeed: 2.5
 --- !u!4 &1385247940
 Transform:
   m_ObjectHideFlags: 0
@@ -21486,7 +21488,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 16.024834
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -23109,6 +23111,7 @@ MonoBehaviour:
         m_CallState: 2
   scoreText: {fileID: 12144208}
   bobAnimations: {fileID: 1966336135}
+  foodMovement: {fileID: 0}
 --- !u!70 &1966336145
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

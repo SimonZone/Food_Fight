@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
+using UnityEditor.Rendering;
+using Unity.VisualScripting;
 
 public class BobController : MonoBehaviour
 {
@@ -25,6 +27,7 @@ public class BobController : MonoBehaviour
 
     public BobAnimations bobAnimations;
     private WordScript projectile;
+    public Movement foodMovement;
 
     private void Start()
     {
@@ -32,6 +35,7 @@ public class BobController : MonoBehaviour
     }
     void FixedUpdate()
     {
+
         if (PowerUp)
         {
             OnPowerUp.Invoke();
@@ -41,6 +45,8 @@ public class BobController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         projectile = collision.gameObject.GetComponentInChildren<WordScript>();
+        foodMovement = collision.gameObject.GetComponentInChildren<Movement>();
+       
         if (projectile != null)
         {
             //Debug.Log("Did find WordScript component, word completeness status: " + projectile.isWordComplete);
@@ -54,10 +60,13 @@ public class BobController : MonoBehaviour
                 Swing.Invoke();
                 Highscore += projectile.currentWord.Count();
                 scoreText.text = Highscore.ToString();
+                //increaseWordSpeed();
                 if (Highscore >= scoreToWin)
                 {
                     OnVictory.Invoke();
                 }
+                
+                
             }
         }
         else
@@ -71,4 +80,5 @@ public class BobController : MonoBehaviour
         }
         Destroy(collision.gameObject);
     }
+    
 }

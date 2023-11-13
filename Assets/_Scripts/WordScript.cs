@@ -61,7 +61,7 @@ public class WordScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("JSON file is not assigned.");
+            //Debug.Log("JSON file is not assigned.");
             wordBank = wordBankBackup;
         }
 

@@ -16,6 +16,8 @@ public class GameManagement : MonoBehaviour
     public int pointsToIncrease = 50;
     public float timeToDecrease = 0.02f;
     private int timesDecreased = 1;
+    public float speed = 5f;
+    public float incrementSpeed = 0.01f;
 
     public void Start()
     {
@@ -56,6 +58,11 @@ public class GameManagement : MonoBehaviour
 
             if (score >= (timesDecreased + 1) * pointsToIncrease)
             {
+
+                speed += incrementSpeed;
+                
+                Debug.Log("Speed increased to " + speed);
+
                 Debug.Log("Times Decreased: " + timesDecreased);
                 timesDecreased++;
                 if (currentSpawnTime >= 1.5f)
@@ -63,6 +70,7 @@ public class GameManagement : MonoBehaviour
                     currentSpawnTime -= timeToDecrease;
                 }
                 timeToDecrease += 0.02f;
+
             }
         }
     }
