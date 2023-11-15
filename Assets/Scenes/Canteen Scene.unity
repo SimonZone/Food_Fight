@@ -20976,12 +20976,12 @@ MonoBehaviour:
   - {fileID: 358427150827502771, guid: b97fa1ef2a720b740a9aae850be81031, type: 3}
   - {fileID: 1598875099037325003, guid: 443138ee89f2bde4cac3bc70a098e818, type: 3}
   bob: {fileID: 1966336134}
-  routineLoops: 200
+  routineLoops: 500
   initialSpawnTime: 5
-  pointsToIncrease: 5
+  pointsToIncrease: 30
   timeToDecrease: 0.02
-  speed: 5
-  incrementSpeed: 0.1
+  speed: 4
+  incrementSpeed: 0.01
 --- !u!4 &1385247940
 Transform:
   m_ObjectHideFlags: 0
