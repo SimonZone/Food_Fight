@@ -27,7 +27,6 @@ public class BobController : MonoBehaviour
 
     public BobAnimations bobAnimations;
     private WordScript projectile;
-    public Movement foodMovement;
 
     private void Start()
     {
@@ -44,7 +43,6 @@ public class BobController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         projectile = collision.gameObject.GetComponentInChildren<WordScript>();
-        foodMovement = collision.gameObject.GetComponentInChildren<Movement>();
        
         if (projectile != null)
         {
@@ -64,8 +62,6 @@ public class BobController : MonoBehaviour
                 {
                     OnVictory.Invoke();
                 }
-                
-                
             }
         }
         else
