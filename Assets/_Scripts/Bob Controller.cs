@@ -12,7 +12,7 @@ public class BobController : MonoBehaviour
     public int Lives = 3;
     public bool PowerUp = false;
     public int Highscore = 0;
-    public int scoreToWin = 500;
+    public int scoreToWin = 1000;
 
     [field: SerializeField]
     public UnityEvent OnDefeat { set; get; }
@@ -35,7 +35,6 @@ public class BobController : MonoBehaviour
     }
     void FixedUpdate()
     {
-
         if (PowerUp)
         {
             OnPowerUp.Invoke();

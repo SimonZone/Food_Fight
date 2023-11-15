@@ -54,23 +54,19 @@ public class GameManagement : MonoBehaviour
             }
             Debug.Log("the score is: " + score
                     + ", the current spawn time is: " + currentSpawnTime
-                    + ", the time to decrease is: " + timesDecreased);
+                    + ", the time to decrease is: " + timesDecreased
+                    + ", speed is: " + speed);
 
             if (score >= (timesDecreased + 1) * pointsToIncrease)
             {
-
                 speed += incrementSpeed;
                 
-                Debug.Log("Speed increased to " + speed);
-
-                Debug.Log("Times Decreased: " + timesDecreased);
-                timesDecreased++;
-                if (currentSpawnTime >= 1.5f)
+                if (currentSpawnTime >= 2.0f)
                 {
                     currentSpawnTime -= timeToDecrease;
                 }
-                timeToDecrease += 0.02f;
-
+                timeToDecrease += 0.003f;
+                timesDecreased++;
             }
         }
     }
